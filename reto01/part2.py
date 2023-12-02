@@ -1,28 +1,28 @@
 
-def text_to_number(numberString):
+def text_to_number(numberString:int):
     translator = {
     'one': 1,
     'two': 2,
-    'thr': 3,
-    'fou': 4,
-    'fiv': 5,
+    'three': 3,
+    'four': 4,
+    'five': 5,
     'six': 6,
-    'sev': 7,
-    'eig': 8,
-    'nin': 9
+    'seven': 7,
+    'eight': 8,
+    'nine': 9
 }
-    print(numberString)
     acum = '0'
-    for index in range(len(numberString)):
+    index = 0
+    while index<len(numberString):
         if numberString[index].isdigit():
             acum += numberString[index]
-        else:
-            capable = numberString[index:index+3]
-    
-            if capable in translator:
-                acum += str(translator[numberString[index:index+3]])
+        else:    
+            for number, value in translator.items():
+                if numberString[index:index + len(number)] == number :
+                    acum += str(value)
+                    break
+        index +=1
     acum=str(int(acum))
-    print(int(acum[0]+acum[-1]))
     return int(acum[0]+acum[-1])
 
 from functools import reduce
@@ -35,7 +35,7 @@ def decode(codes:list[str]):
 def decode_machine(file):
     with open (file, 'r') as opened_file:
         contain = opened_file.read()
-    
+
     list_contain = contain.split('\n')
     return decode(list_contain)
 
