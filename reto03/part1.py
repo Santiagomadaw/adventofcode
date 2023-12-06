@@ -1,28 +1,20 @@
 
-
 def last_char(stringList, x, y):
-    return not y < len(stringList[x])-1
+    return not y < len(stringList[x]) - 1
 
-
-def first_one(index, reference=0):
-
-    return max(0, index-1)
 def is_valid_simbol(char):
     return not char.isdigit() and char != '.'
 
 def open_split(motor):
-    with open(motor, 'r'):
-        return motor.read().split('\n')
+    with open(motor, 'r') as rawfile:
+        return rawfile.read().strip().split('\n')
 
 
 def is_part_number(listOfstrings, x, starty, finishy):
-
-    startx = (max(0, x-1))
-    finishx = (min(x+1, len(listOfstrings)-1))
-    for i in range(startx, finishx+1):
-
-        for j in range(starty, finishy+1):
-
+    startx = max(0, x-1)
+    finishx = min(x+1, len(listOfstrings)-1)+1
+    for i in range(startx, finishx):
+        for j in range(starty, finishy):
             if is_valid_simbol(listOfstrings[i][j]):
                 return True
     return False
@@ -42,18 +34,16 @@ def part_finder(file):
 
                 number += motor_debug[indexx][indexy]
                 if start == -1:
-                    start = first_one(indexy)
+                    start = max(0, indexy-1)
                 else:
                     if last_char(motor_debug, indexx, indexy):
 
-                        finish = indexy
-                        print(number)
+                        finish = indexy +1
             else:
 
                 if start != -1:
-                    finish = indexy
+                    finish = indexy+1
 
-                    print('numero', number)
 
             if finish != -1:
                 if is_part_number(motor_debug, indexx, start, finish):
