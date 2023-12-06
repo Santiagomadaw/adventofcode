@@ -1,4 +1,7 @@
---- Día 3: Relaciones de Engranajes ---
+
+
+# --- Día 3: Relaciones de Engranajes ---
+
 Tú y el Elfo finalmente llegan a una estación de teleférico; él dice que el teleférico te llevará hasta la fuente de agua, pero este es tan lejos como puede acompañarte. Entráis.
 
 No tardáis en encontrar los teleféricos, pero parece haber un problema: no se están moviendo.
