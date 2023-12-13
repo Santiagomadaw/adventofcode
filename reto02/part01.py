@@ -39,7 +39,10 @@ def valid_game_code_sum(file):
                 break
         if all_right:
             acum += int(game[0])
+            
+    return acum
 
+print(valid_game_code_sum('/home/santiagomadaw/repositorios/adventofcode/reto02/inputreto02.txt'))
 
 def power_cubes(file):
     sum = 0
@@ -61,4 +64,5 @@ def power_cubes(file):
     return sum
 
 
-print(power_cubes('inputreto02-2.txt'))
+print(power_cubes('/home/santiagomadaw/repositorios/adventofcode/reto02/inputreto02.txt'))
+
